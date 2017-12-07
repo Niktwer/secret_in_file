@@ -1,0 +1,54 @@
+
+<!-- saved from url=(0170)https://tpc.googlesyndication.com/pagead/gadgets/dynamic_in_page_V1/Responsive_murray2_GpaSingleIframe.html?e=69&renderingType=2&leftOffset=0&topOffset=0&c=lT5ap9UUrP&t=1 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" href="./Responsive_murray2_GpaSingleIframe.css">
+  <script src="./Enabler_01_153.js.Без названия"></script>
+  <script src="./Responsive_murray2_GpaSingleIframe.js.Без названия"></script>
+  <link rel="stylesheet" href="./css(4)">
+  <script>
+    if (!Enabler.isInitialized()) {
+      Enabler.addEventListener(
+        studio.events.StudioEvent.INIT,
+        enablerInitialized);
+    } else {
+       enablerInitialized();
+    }
+    function enablerInitialized() {
+      if (!Enabler.isVisible()) {
+        Enabler.addEventListener(
+          studio.events.StudioEvent.VISIBLE,
+          adVisible);
+      } else {
+         adVisible();
+      }
+    }
+    function adVisible() {
+      var ccm = window.Enabler.getDynamicDataPayload();
+      var adData = {
+        'google_template_data': {
+          'adData': [ccm]
+        }
+      };
+      var ExitWrapper = function(Enabler, ccm) {
+        this.enabler_ = Enabler;
+        this.ccm_ = ccm;
+      };
+      ExitWrapper.prototype.exit = function(exitKey) {
+        // exitKey is in this format - Product_0_url.
+        if (!exitKey.match("Product_[0-9]+_url")) {
+          console.log("Error:exitKey is not in valid format(Product_[0-9]+_url), it is:" + exitKey);
+          this.enabler_.exitOverride('Layout Exit', this.ccm_[exitKey]);
+        } else {
+          var res = exitKey.split('_');
+          this.enabler_.dynamicExit('Layout Exit', this.ccm_[exitKey], res[1]);
+        }
+      }
+      onAdData(adData, new ExitWrapper(Enabler, ccm));
+    }
+  </script>
+</head>
+<body>
+
+
+
+<div class="root-element" id="root-element"><div class="adContent" id="adContent" style="background-color: rgb(5, 163, 0);"><div class="product-container" id="products" style="top: 1px;"><div class="product visible-product" id="product0" style="height: 193px; width: 143px; float: left;"><div class="product-img" style="background-image: url(&quot;https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQrBmbZ5APIVd078m-A6nE7HlBw2RfD2i06hsHtiKS0TcvcWuMFg9SoOKfirA&amp;usqp=CAI&quot;); height: 189px; width: 141px;"><div class="price-overlay-container"><div class="sale-price overlay-price">29&nbsp;999&nbsp;грн</div></div></div><div class="product-info-container"><div class="product-name" data-truncated="true" style="display: block;"><text-fit style="display: inline;">Samsung Galaxy Note 8 64GB Black…</text-fit></div><div class="product-rating-container"><div class="product-rating"></div></div><div class="price-container"></div><div class="cta" style="background-color: rgb(243, 243, 243); color: rgb(0, 0, 0); line-height: 28px;">Купить</div></div></div><div class="product visible-product" id="product1" style="height: 193px; width: 143px; float: left;"><div class="product-img" style="background-image: url(&quot;https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRgMU3wf8dVvRcxme-73vLwS0GwQjvCuBhbldUqbZOITiTlIY_9gg30-z3T&amp;usqp=CAI&quot;); height: 189px; width: 141px;"><div class="price-overlay-container"><div class="sale-price overlay-price">1&nbsp;749&nbsp;грн</div></div></div><div class="product-info-container"><div class="product-name" data-truncated="false" style="display: block;"><text-fit style="display: inline;">Doogee X9 Mini Black</text-fit></div><div class="product-rating-container"><div class="product-rating"></div></div><div class="price-container"></div><div class="cta" style="background-color: rgb(243, 243, 243); color: rgb(0, 0, 0); line-height: 28px;">Купить</div></div></div></div><footer class="footer" id="footer"><div class="logo" style="background-image: url(&quot;https://s0.2mdn.net/dynamic/1/1069264/1490365519715_1460128173558_1460127997836_logo.png&quot;);"></div></footer></div></div></body></html>

@@ -1,0 +1,537 @@
+@font-face {
+  font-family: 'attach-files';
+  src:  url('fonts/attach-files.eot?ymzsj9');
+  src:  url('fonts/attach-files.eot?ymzsj9#iefix') format('embedded-opentype'),
+    url('fonts/attach-files.ttf?ymzsj9') format('truetype'),
+    url('fonts/attach-files.woff?ymzsj9') format('woff'),
+    url('fonts/attach-files.svg?ymzsj9#attach-files') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="file-"], [class*=" file-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'attach-files' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.file-three-dm:before {
+  content: "\e900";
+}
+.file-three-ds:before {
+  content: "\e901";
+}
+.file-three-g-two:before {
+  content: "\e902";
+}
+.file-three-gp:before {
+  content: "\e903";
+}
+.file-seven-z:before {
+  content: "\e904";
+}
+.file-aac:before {
+  content: "\e905";
+}
+.file-ai:before {
+  content: "\e906";
+}
+.file-aif:before {
+  content: "\e907";
+}
+.file-apk:before {
+  content: "\e908";
+}
+.file-app:before {
+  content: "\e909";
+}
+.file-asf:before {
+  content: "\e90a";
+}
+.file-asp:before {
+  content: "\e90b";
+}
+.file-aspx:before {
+  content: "\e90c";
+}
+.file-asx:before {
+  content: "\e90d";
+}
+.file-avi:before {
+  content: "\e90e";
+}
+.file-bak:before {
+  content: "\e90f";
+}
+.file-bat:before {
+  content: "\e910";
+}
+.file-bin:before {
+  content: "\e911";
+}
+.file-bmp:before {
+  content: "\e912";
+}
+.file-cab:before {
+  content: "\e913";
+}
+.file-cad:before {
+  content: "\e914";
+}
+.file-cdr:before {
+  content: "\e915";
+}
+.file-cfg:before {
+  content: "\e916";
+}
+.file-cfm:before {
+  content: "\e917";
+}
+.file-cgi:before {
+  content: "\e918";
+}
+.file-class:before {
+  content: "\e919";
+}
+.file-com:before {
+  content: "\e91a";
+}
+.file-cpl:before {
+  content: "\e91b";
+}
+.file-cpp:before {
+  content: "\e91c";
+}
+.file-crx:before {
+  content: "\e91d";
+}
+.file-csr:before {
+  content: "\e91e";
+}
+.file-css:before {
+  content: "\e91f";
+}
+.file-csv:before {
+  content: "\e920";
+}
+.file-cue:before {
+  content: "\e921";
+}
+.file-cur:before {
+  content: "\e922";
+}
+.file-dat:before {
+  content: "\e923";
+}
+.file-db:before {
+  content: "\e924";
+}
+.file-dbf:before {
+  content: "\e925";
+}
+.file-dds:before {
+  content: "\e926";
+}
+.file-dem:before {
+  content: "\e927";
+}
+.file-dll:before {
+  content: "\e928";
+}
+.file-dmg:before {
+  content: "\e929";
+}
+.file-dmp:before {
+  content: "\e92a";
+}
+.file-doc:before {
+  content: "\e92b";
+}
+.file-docx:before {
+  content: "\e92c";
+}
+.file-drv:before {
+  content: "\e92d";
+}
+.file-dtd:before {
+  content: "\e92e";
+}
+.file-dwg:before {
+  content: "\e92f";
+}
+.file-dxf:before {
+  content: "\e930";
+}
+.file-elf:before {
+  content: "\e931";
+}
+.file-eps:before {
+  content: "\e932";
+}
+.file-exe:before {
+  content: "\e933";
+}
+.file-fla:before {
+  content: "\e934";
+}
+.file-flash:before {
+  content: "\e935";
+}
+.file-flv:before {
+  content: "\e936";
+}
+.file-fnt:before {
+  content: "\e937";
+}
+.file-fon:before {
+  content: "\e938";
+}
+.file-gam:before {
+  content: "\e939";
+}
+.file-gbr:before {
+  content: "\e93a";
+}
+.file-ged:before {
+  content: "\e93b";
+}
+.file-ger:before {
+  content: "\e93c";
+}
+.file-gif:before {
+  content: "\e93d";
+}
+.file-gpx:before {
+  content: "\e93e";
+}
+.file-gz:before {
+  content: "\e93f";
+}
+.file-gzip:before {
+  content: "\e940";
+}
+.file-hqz:before {
+  content: "\e941";
+}
+.file-html:before {
+  content: "\e942";
+}
+.file-ibooks:before {
+  content: "\e943";
+}
+.file-icns:before {
+  content: "\e944";
+}
+.file-ico:before {
+  content: "\e945";
+}
+.file-ics:before {
+  content: "\e946";
+}
+.file-iff:before {
+  content: "\e947";
+}
+.file-indd:before {
+  content: "\e948";
+}
+.file-iso:before {
+  content: "\e949";
+}
+.file-jar:before {
+  content: "\e94a";
+}
+.file-jpg:before {
+  content: "\e94b";
+}
+.file-js:before {
+  content: "\e94c";
+}
+.file-jsp:before {
+  content: "\e94d";
+}
+.file-key:before {
+  content: "\e94e";
+}
+.file-kml:before {
+  content: "\e94f";
+}
+.file-kmz:before {
+  content: "\e950";
+}
+.file-lnk:before {
+  content: "\e951";
+}
+.file-log:before {
+  content: "\e952";
+}
+.file-lua:before {
+  content: "\e953";
+}
+.file-m-three-u:before {
+  content: "\e954";
+}
+.file-m-four-a:before {
+  content: "\e955";
+}
+.file-m-four-v:before {
+  content: "\e956";
+}
+.file-mach-o:before {
+  content: "\e957";
+}
+.file-max:before {
+  content: "\e958";
+}
+.file-mdb:before {
+  content: "\e959";
+}
+.file-mdf:before {
+  content: "\e95a";
+}
+.file-mid:before {
+  content: "\e95b";
+}
+.file-mim:before {
+  content: "\e95c";
+}
+.file-mov:before {
+  content: "\e95d";
+}
+.file-mp3:before {
+  content: "\e95e";
+}
+.file-mp4:before {
+  content: "\e95f";
+}
+.file-mpa:before {
+  content: "\e960";
+}
+.file-mpg:before {
+  content: "\e961";
+}
+.file-msg:before {
+  content: "\e962";
+}
+.file-msi:before {
+  content: "\e963";
+}
+.file-nes:before {
+  content: "\e964";
+}
+.file-obj:before {
+  content: "\e965";
+}
+.file-odb:before {
+  content: "\e966";
+}
+.file-odc:before {
+  content: "\e967";
+}
+.file-odf:before {
+  content: "\e968";
+}
+.file-odg:before {
+  content: "\e969";
+}
+.file-odi:before {
+  content: "\e96a";
+}
+.file-odp:before {
+  content: "\e96b";
+}
+.file-ods:before {
+  content: "\e96c";
+}
+.file-odt:before {
+  content: "\e96d";
+}
+.file-odx:before {
+  content: "\e96e";
+}
+.file-ogg:before {
+  content: "\e96f";
+}
+.file-otf:before {
+  content: "\e970";
+}
+.file-pages:before {
+  content: "\e971";
+}
+.file-pct:before {
+  content: "\e972";
+}
+.file-pdb:before {
+  content: "\e973";
+}
+.file-pif:before {
+  content: "\e974";
+}
+.file-pkg:before {
+  content: "\e975";
+}
+.file-pl:before {
+  content: "\e976";
+}
+.file-png:before {
+  content: "\e977";
+}
+.file-pps:before {
+  content: "\e978";
+}
+.file-ppt:before {
+  content: "\e979";
+}
+.file-pptx:before {
+  content: "\e97a";
+}
+.file-ps:before {
+  content: "\e97b";
+}
+.file-psd:before {
+  content: "\e97c";
+}
+.file-pub:before {
+  content: "\e97d";
+}
+.file-py:before {
+  content: "\e97e";
+}
+.file-ra:before {
+  content: "\e97f";
+}
+.file-rar:before {
+  content: "\e980";
+}
+.file-raw:before {
+  content: "\e981";
+}
+.file-rm:before {
+  content: "\e982";
+}
+.file-rom:before {
+  content: "\e983";
+}
+.file-rpm:before {
+  content: "\e984";
+}
+.file-rss:before {
+  content: "\e985";
+}
+.file-rtf:before {
+  content: "\e986";
+}
+.file-sav:before {
+  content: "\e987";
+}
+.file-sdf:before {
+  content: "\e988";
+}
+.file-sitx:before {
+  content: "\e989";
+}
+.file-sql:before {
+  content: "\e98a";
+}
+.file-srt:before {
+  content: "\e98b";
+}
+.file-svg:before {
+  content: "\e98c";
+}
+.file-swf:before {
+  content: "\e98d";
+}
+.file-sys:before {
+  content: "\e98e";
+}
+.file-tar:before {
+  content: "\e98f";
+}
+.file-tex:before {
+  content: "\e990";
+}
+.file-tga:before {
+  content: "\e991";
+}
+.file-thm:before {
+  content: "\e992";
+}
+.file-tmp:before {
+  content: "\e993";
+}
+.file-torrent:before {
+  content: "\e994";
+}
+.file-ttf:before {
+  content: "\e995";
+}
+.file-txt:before {
+  content: "\e996";
+}
+.file-uue:before {
+  content: "\e997";
+}
+.file-vb:before {
+  content: "\e998";
+}
+.file-vcd:before {
+  content: "\e999";
+}
+.file-vcf:before {
+  content: "\e99a";
+}
+.file-vob:before {
+  content: "\e99b";
+}
+.file-wav:before {
+  content: "\e99c";
+}
+.file-wma:before {
+  content: "\e99d";
+}
+.file-wmv:before {
+  content: "\e99e";
+}
+.file-wpd:before {
+  content: "\e99f";
+}
+.file-wps:before {
+  content: "\e9a0";
+}
+.file-wsf:before {
+  content: "\e9a1";
+}
+.file-xhtml:before {
+  content: "\e9a2";
+}
+.file-xlr:before {
+  content: "\e9a3";
+}
+.file-xls:before {
+  content: "\e9a4";
+}
+.file-xlsx:before {
+  content: "\e9a5";
+}
+.file-xml:before {
+  content: "\e9a6";
+}
+.file-yuv:before {
+  content: "\e9a7";
+}
+.file-zip:before {
+  content: "\e9a8";
+}
+.file-fb2:before {
+  content: "\e9a9";
+}
+

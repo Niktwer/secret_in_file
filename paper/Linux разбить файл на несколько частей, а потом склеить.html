@@ -1,0 +1,550 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0079)https://www.it-rem.ru/linux-razbit-fayl-na-neskolko-chastey-a-potom-skleit.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru-RU"><head profile="http://gmpg.org/xfn/11"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<meta name="author" content="IT Remarks">
+	<link rel="stylesheet" href="./Linux разбить файл на несколько частей, а потом склеить_files/style.css" type="text/css" media="screen">
+	<link rel="pingback" href="https://www.it-rem.ru/xmlrpc.php">
+    <link rel="icon" href="https://www.it-rem.ru/wp-content/themes/itrem/images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="https://www.it-rem.ru/wp-content/themes/itrem/images/favicon.ico" type="image/x-icon">
+    <link rel="author" href="https://plus.google.com/104024383237941394382/posts">
+
+    <title>Linux разбить файл на несколько частей, а потом склеить</title>
+
+    	<link rel="start" href="https://www.it-rem.ru/" title="IT Remarks - Главная">
+    
+    <link rel="pingback" href="https://www.it-rem.ru/xmlrpc.php">
+    
+    
+    
+<!-- All in One SEO Pack 2.4.2 by Michael Torbert of Semper Fi Web Design[931,1002] -->
+<meta name="description" content="Столкнулся с задачей: необходимо стянуть с сервера большой файл, 100+ Гб, но вот незадача, не стабильное соединение. Выкачается за несколько часов, например 70">
+
+<meta name="keywords" content="cat,copy,files,linux,split">
+
+<link rel="canonical" href="https://www.it-rem.ru/linux-razbit-fayl-na-neskolko-chastey-a-potom-skleit.html">
+<!-- /all in one seo pack -->
+<link rel="dns-prefetch" href="https://ajax.googleapis.com/">
+<link rel="dns-prefetch" href="https://s.w.org/">
+<link rel="alternate" type="application/rss+xml" title="IT Remarks » Лента" href="https://www.it-rem.ru/feed">
+<link rel="alternate" type="application/rss+xml" title="IT Remarks » Лента комментариев" href="https://www.it-rem.ru/comments/feed">
+<link rel="alternate" type="application/rss+xml" title="IT Remarks » Лента комментариев к «Linux разбить файл на несколько частей, а потом склеить»" href="https://www.it-rem.ru/linux-razbit-fayl-na-neskolko-chastey-a-potom-skleit.html/feed">
+		<script type="text/javascript" async="" src="./Linux разбить файл на несколько частей, а потом склеить_files/recaptcha__uk.js.Без названия"></script><script src="./Linux разбить файл на несколько частей, а потом склеить_files/ca-pub-3056663252345829.js.Без названия"></script><script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.it-rem.ru\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.8.3"}};
+			!function(a,b,c){function d(a){var b,c,d,e,f=String.fromCharCode;if(!k||!k.fillText)return!1;switch(k.clearRect(0,0,j.width,j.height),k.textBaseline="top",k.font="600 32px Arial",a){case"flag":return k.fillText(f(55356,56826,55356,56819),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,56826,8203,55356,56819),0,0),c=j.toDataURL(),b!==c&&(k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447),0,0),c=j.toDataURL(),b!==c);case"emoji4":return k.fillText(f(55358,56794,8205,9794,65039),0,0),d=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55358,56794,8203,9794,65039),0,0),e=j.toDataURL(),d!==e}return!1}function e(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i,j=b.createElement("canvas"),k=j.getContext&&j.getContext("2d");for(i=Array("flag","emoji4"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="./Linux разбить файл на несколько частей, а потом склеить_files/wp-emoji-release.min.js.Без названия" type="text/javascript" defer=""></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="shadowbox-css-css" href="./Linux разбить файл на несколько частей, а потом склеить_files/shadowbox.css" type="text/css" media="screen">
+<link rel="stylesheet" id="shadowbox-extras-css" href="./Linux разбить файл на несколько частей, а потом склеить_files/extras.css" type="text/css" media="screen">
+<link rel="stylesheet" id="crayon-css" href="./Linux разбить файл на несколько частей, а потом склеить_files/crayon.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="crayon-theme-classic-css" href="./Linux разбить файл на несколько частей, а потом склеить_files/classic.css" type="text/css" media="all">
+<link rel="stylesheet" id="crayon-font-monaco-css" href="./Linux разбить файл на несколько частей, а потом склеить_files/monaco.css" type="text/css" media="all">
+<link rel="stylesheet" id="astbiz-user-last-login-frontend-css-css" href="./Linux разбить файл на несколько частей, а потом склеить_files/frontend.css" type="text/css" media="all">
+<link rel="stylesheet" id="wp-pagenavi-css" href="./Linux разбить файл на несколько частей, а потом склеить_files/pagenavi-css.css" type="text/css" media="all">
+<link rel="stylesheet" id="mediaelementjs-styles-css" href="./Linux разбить файл на несколько частей, а потом склеить_files/mediaelementplayer.css" type="text/css" media="all">
+<script type="text/javascript" src="./Linux разбить файл на несколько частей, а потом склеить_files/jquery.min.js.Без названия"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var CrayonSyntaxSettings = {"version":"_2.7.2_beta","is_admin":"0","ajaxurl":"https:\/\/www.it-rem.ru\/wp-admin\/admin-ajax.php","prefix":"crayon-","setting":"crayon-setting","selected":"crayon-setting-selected","changed":"crayon-setting-changed","special":"crayon-setting-special","orig_value":"data-orig-value","debug":""};
+var CrayonSyntaxStrings = {"copy":"Press %s to Copy, %s to Paste","minimize":"Click To Expand Code"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Linux разбить файл на несколько частей, а потом склеить_files/crayon.min.js.Без названия"></script>
+<script type="text/javascript" src="./Linux разбить файл на несколько частей, а потом склеить_files/mediaelement-and-player.min.js.Без названия"></script>
+<link rel="https://api.w.org/" href="https://www.it-rem.ru/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.it-rem.ru/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.it-rem.ru/wp-includes/wlwmanifest.xml"> 
+<link rel="prev" title="ErrorDocument 404, 301 редирект" href="https://www.it-rem.ru/errordocument-404-301-redirekt.html">
+<link rel="next" title="Linux занято место на пустом диске" href="https://www.it-rem.ru/linux-zanyato-mesto-na-pustom-diske.html">
+<meta name="generator" content="WordPress 4.8.3">
+<link rel="shortlink" href="https://www.it-rem.ru/?p=1557">
+<link rel="alternate" type="application/json+oembed" href="https://www.it-rem.ru/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.it-rem.ru%2Flinux-razbit-fayl-na-neskolko-chastey-a-potom-skleit.html">
+<link rel="alternate" type="text/xml+oembed" href="https://www.it-rem.ru/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.it-rem.ru%2Flinux-razbit-fayl-na-neskolko-chastey-a-potom-skleit.html&amp;format=xml">
+
+<!-- This site is using AdRotate v4.7 to display their advertisements - https://ajdg.solutions/products/adrotate-for-wordpress/ -->
+<!-- AdRotate CSS -->
+<style type="text/css" media="screen">
+	.g { margin:0px; padding:0px; overflow:hidden; line-height:1; zoom:1; }
+	.g img { height:auto; }
+	.g-col { position:relative; float:left; }
+	.g-col:first-child { margin-left: 0; }
+	.g-col:last-child { margin-right: 0; }
+	.g-1 { margin:0px;width:100%; max-width:300px; height:100%; max-height:370px; }
+	@media only screen and (max-width: 480px) {
+		.g-col, .g-dyn, .g-single { width:100%; margin-left:0; margin-right:0; }
+	}
+</style>
+<!-- /AdRotate CSS -->
+
+<script>eval(atob('CiAgICAgICAgZnVuY3Rpb24gY3Bqcyhubyl7CiAgICAgICAgICAgIGNwanNzYygnNDhiMjYwYmUwNTI5MjgzOCcpOwogICAgICAgICAgICBuby5hY3Rpb24gPSAnaHR0cHM6Ly93d3cuaXQtcmVtLnJ1L2NwanMvMTkwZmFjZDNmY2Q2NzY0NzknOwogICAgICAgIH0KICAgIA=='));</script>
+		<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+		<style type="text/css">.broken_link, a.broken_link {
+	text-decoration: line-through;
+}</style>
+    <script language="JavaScript" src="./Linux разбить файл на несколько частей, а потом склеить_files/script.js.Без названия" type="text/javascript"></script>
+    <link rel="stylesheet" href="./Linux разбить файл на несколько частей, а потом склеить_files/style(1).css" type="text/css" media="screen">
+<link rel="preload" href="./Linux разбить файл на несколько частей, а потом склеить_files/integrator.js.Без названия" as="script"><script type="text/javascript" src="./Linux разбить файл на несколько частей, а потом склеить_files/integrator.js.Без названия"></script><link rel="preload" href="./Linux разбить файл на несколько частей, а потом склеить_files/integrator.js(1).Без названия" as="script"><script type="text/javascript" src="./Linux разбить файл на несколько частей, а потом склеить_files/integrator.js(1).Без названия"></script><link rel="prefetch" href="https://securepubads.g.doubleclick.net/static/3p_cookie.html"></head>
+<body class="post-template-default single single-post postid-1557 single-format-standard">
+<div id="header">
+                
+		<div id="globalNavi">
+					<ul id="menu-menyu-1" class="menu"><li id="menu-item-3035" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-3035"><a href="http://www.it-rem.ru/">Главная</a></li>
+<li id="menu-item-3920" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3920"><a href="http://forum.it-rem.ru/">Форум</a></li>
+<li id="menu-item-4398" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4398"><a href="https://www.it-rem.ru/rek">Рекомендую</a></li>
+<li id="menu-item-4117" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4117"><a href="https://toster.ru/user/orlov0562">Toster</a></li>
+<li id="menu-item-4118" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4118"><a href="https://github.com/orlov0562">GitHub</a></li>
+<li id="menu-item-4483" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4483"><a href="https://www.it-rem.ru/links">Ссылки</a></li>
+<li id="menu-item-4384" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4384"><a href="https://www.it-rem.ru/time">Время</a></li>
+</ul>				<div class="rss">
+				<a href="https://www.it-rem.ru/feed" rel="alternate" type="application/rss+xml" target="_blank" title="Подписка"></a>
+		</div>
+		<div class="searchbox"><form method="get" id="searchform" action="https://www.it-rem.ru/">
+<div>
+	<input type="text" value="Поиск..." onfocus="if (this.value == &#39;Поиск...&#39;) {this.value = &#39;&#39;;}" onblur="if (this.value == &#39;&#39;) {this.value = &#39;Поиск...&#39;;}" name="s" id="s" size="15">
+	<input type="submit" id="searchsubmit">
+</div>
+</form></div>
+	</div>
+</div>
+
+<div id="content" class="single">
+	<div id="main">
+	<p class="topicPath"><a href="https://www.it-rem.ru/">Главная</a> &gt; <a href="https://www.it-rem.ru/c/linux" rel="category tag">Linux</a> | <a href="https://www.it-rem.ru/c/windows" rel="category tag">Windows</a> &gt; <span class="current">Linux разбить файл на несколько частей, а потом склеить</span></p>
+	<div class="section entry" id="entry1557">
+			<div class="post">
+			<h1>Linux разбить файл на несколько частей, а потом склеить</h1>
+  				<div class="singleinfo">
+                    <div style="padding:4px 0; overflow:auto;">
+    			    	<span class="dateinfo updated">08.01.2013</span>
+    				    <span class="catinfo"><a href="https://www.it-rem.ru/linux-razbit-fayl-na-neskolko-chastey-a-potom-skleit.html#comments">8 комментариев »</a></span>
+                        <span class="views">Просмотры: 11&nbsp;389</span>                    </div>
+          			<div class="singleinfo" style="font-size: 1px; padding-top:0px;">&nbsp;</div>
+				</div>
+
+                <div style="text-align:center; background-color:white; padding:5px; margin: 10px 20px 0px 0xp;">
+                    <script async="" src="./Linux разбить файл на несколько частей, а потом склеить_files/adsbygoogle.js.Без названия"></script>
+                    <!-- It-Rem-468x60 -->
+                    <ins class="adsbygoogle" style="display:inline-block;width:468px;height:60px" data-ad-client="ca-pub-3056663252345829" data-ad-slot="2042498591" data-adsbygoogle-status="done"><ins id="aswift_0_expand" style="display:inline-table;border:none;height:60px;margin:0;padding:0;position:relative;visibility:visible;width:468px;background-color:transparent;"><ins id="aswift_0_anchor" style="display:block;border:none;height:60px;margin:0;padding:0;position:relative;visibility:visible;width:468px;background-color:transparent;"><iframe width="468" height="60" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;width:468px;height:60px;" src="./Linux разбить файл на несколько частей, а потом склеить_files/saved_resource.html"></iframe></ins></ins></ins>
+                    <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+
+                <div class="entry"><p>Столкнулся с задачей: необходимо стянуть с сервера большой файл, 100+ Гб, но вот незадача, не стабильное соединение. Выкачается за несколько часов, например 70 Гб и соединение обрывается, а это и время и трафик. Самое простое на мой взгляд решение - это разбить файл на кусочки, выкачать их и потом склеить снова в большой файл...</p>
+<p><span id="more-1557"></span></p>
+<ul>
+<li>Разбить на кусочки по 10 Гб, можно такой командой:<br>
+<!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5a0af72f36fb8834606451" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate crayon-wrapped" data-settings=" minimize scroll-mouseover wrap" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" show" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button crayon-pressed" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="dblclick" readonly="" style="tab-size: 4; font-size: 12px !important; line-height: 15px !important; z-index: 0; opacity: 0; overflow: hidden;">
+split -b 10G big_file.ext
+</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5a0af72f36fb8834606451-0" style="height: 15px;">0</div><div class="crayon-num crayon-striped-num" data-line="crayon-5a0af72f36fb8834606451-1" style="height: 15px;">1</div><div class="crayon-num" data-line="crayon-5a0af72f36fb8834606451-2" style="height: 15px;">2</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5a0af72f36fb8834606451-0">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5a0af72f36fb8834606451-1"><span class="crayon-v">split</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-i">b</span><span class="crayon-h"> </span><span class="crayon-cn">10G</span><span class="crayon-h"> </span><span class="crayon-v">big_file</span><span class="crayon-sy">.</span><span class="crayon-i">ext</span></div><div class="crayon-line" id="crayon-5a0af72f36fb8834606451-2">&nbsp;</div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0004 seconds] -->
+<br>
+при этом имена файлов будут типа: xaa, xab, xac..</li>
+<li>Далее копируем их к себе</li>
+<li>Склеиваем в Linux:<br>
+<!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5a0af72f36fbf318526101" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate crayon-wrapped" data-settings=" minimize scroll-mouseover wrap" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" show" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button crayon-pressed" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="dblclick" readonly="" style="tab-size: 4; font-size: 12px !important; line-height: 15px !important; z-index: 0; opacity: 0; overflow: hidden;">
+cat xaa xab xac &gt; big_file.ext
+</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5a0af72f36fbf318526101-0" style="height: 15px;">0</div><div class="crayon-num crayon-striped-num" data-line="crayon-5a0af72f36fbf318526101-1" style="height: 15px;">1</div><div class="crayon-num" data-line="crayon-5a0af72f36fbf318526101-2" style="height: 15px;">2</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5a0af72f36fbf318526101-0">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5a0af72f36fbf318526101-1"><span class="crayon-e">cat </span><span class="crayon-e">xaa </span><span class="crayon-e">xab </span><span class="crayon-v">xac</span><span class="crayon-h"> </span><span class="crayon-o">&gt;</span><span class="crayon-h"> </span><span class="crayon-v">big_file</span><span class="crayon-sy">.</span><span class="crayon-i">ext</span></div><div class="crayon-line" id="crayon-5a0af72f36fbf318526101-2">&nbsp;</div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0003 seconds] -->
+
+</li>
+<li>Склеиваем в Windows:<br>
+<!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5a0af72f36fc3918665971" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate crayon-wrapped" data-settings=" minimize scroll-mouseover wrap" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" show" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button crayon-pressed" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="dblclick" readonly="" style="tab-size: 4; font-size: 12px !important; line-height: 15px !important; z-index: 0; opacity: 0; overflow: auto;">
+copy /B xaa+xab+xac big_file.ext
+</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: auto;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5a0af72f36fc3918665971-0" style="height: 15px;">0</div><div class="crayon-num crayon-striped-num" data-line="crayon-5a0af72f36fc3918665971-1" style="height: 15px;">1</div><div class="crayon-num" data-line="crayon-5a0af72f36fc3918665971-2" style="height: 15px;">2</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5a0af72f36fc3918665971-0">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5a0af72f36fc3918665971-1"><span class="crayon-v">copy</span><span class="crayon-h"> </span><span class="crayon-o">/</span><span class="crayon-i">B</span><span class="crayon-h"> </span><span class="crayon-v">xaa</span><span class="crayon-o">+</span><span class="crayon-v">xab</span><span class="crayon-o">+</span><span class="crayon-e">xac </span><span class="crayon-v">big_file</span><span class="crayon-sy">.</span><span class="crayon-i">ext</span></div><div class="crayon-line" id="crayon-5a0af72f36fc3918665971-2">&nbsp;</div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0003 seconds] -->
+
+</li>
+</ul>
+</div>
+                								<p class="infobottom">
+                    Автор: <span class="vcard author"><span class="fn"><a rel="author" href="https://plus.google.com/104024383237941394382?rel=author" target="_blank">Виталий Орлов</a></span></span>
+                    |
+	 			    Теги:   <span class="tags"><a href="https://www.it-rem.ru/tag/cat" rel="tag">cat</a> , <a href="https://www.it-rem.ru/tag/copy" rel="tag">copy</a> , <a href="https://www.it-rem.ru/tag/files" rel="tag">files</a> , <a href="https://www.it-rem.ru/tag/linux-2" rel="tag">linux</a> , <a href="https://www.it-rem.ru/tag/split" rel="tag">split</a></span>									</p>
+		</div>
+	
+	
+<!-- You can start editing here. -->
+
+<div style="margin:20px 20px 20px 0; border-radius:5px; border:1px solid #D0D0D0; background-color: #EAECEA ; padding: 10px;">
+    <h3 style="margin:0 0 10px 0;">Важно</h3>
+    У нас заработал <a href="https://forum.it-rem.ru/" target="_blank">ФОРУМ</a>. Все вопросы, которые не касаются статьи,
+    а так же вопросы по конкретно вашему случаю нужно задавать и обсуждать именно там, в разделе
+    <a href="https://forum.it-rem.ru/viewforum.php?f=2" target="_blank">"Помощь пользователям"</a>.
+</div>
+
+	<div id="comments">
+				<h2 id="commentsx">8 комментариев</h2>
+				<span class="addown"><a href="https://www.it-rem.ru/linux-razbit-fayl-na-neskolko-chastey-a-potom-skleit.html#commentform">Написать свой</a></span>
+	</div>
+	<div class="page_navi">
+		<div class="alignleft"></div>
+		<div class="alignright"></div>
+	</div>
+
+        <a name="comments"></a>
+	<ol class="commentlist">
+	            <li class="comment even thread-even depth-1" id="li-comment-1662">
+                <a name="comment-1662"></a>
+                <div id="comment-1662">
+                    <span class="avatarx"><img src="./Linux разбить файл на несколько частей, а потом склеить_files/noavatarprofileicon.png" width="40" height="40" alt="" class="avatar avatar-40wp-user-avatar wp-user-avatar-40 alignnone photo avatar-default"></span>
+                    <div class="message_head">
+                        <span class="name">Дмитрий.</span>
+                        <span class="reply"><a rel="nofollow" class="comment-reply-link" href="https://www.it-rem.ru/linux-razbit-fayl-na-neskolko-chastey-a-potom-skleit.html?replytocom=1662#respond" onclick="return addComment.moveForm( &quot;comment-1662&quot;, &quot;1662&quot;, &quot;respond&quot;, &quot;1557&quot; )" aria-label="Комментарий к записи Дмитрий.">Ответить</a></span>
+                                                <br>
+                        <span class="date">27.05.2016 в 4:27 дп</span>
+                        <div class="cmt_text">А как разбить файлы на windows? а потом склеить на Linux ?
+<br>
+Есть такая возможность ?</div>
+                    </div>
+                </div>
+<ul class="children">
+            <li class="comment byuser comment-author-vo bypostauthor odd alt depth-2" id="li-comment-1663">
+                <a name="comment-1663"></a>
+                <div id="comment-1663">
+                    <span class="avatarx"><img src="./Linux разбить файл на несколько частей, а потом склеить_files/new-ava-96.jpg" width="40" height="40" alt="Vitaliy Orlov" class="avatar avatar-40 wp-user-avatar wp-user-avatar-40 alignnone photo"></span>
+                    <div class="message_head">
+                        <span class="name">Vitaliy Orlov</span>
+                        <span class="reply"><a rel="nofollow" class="comment-reply-link" href="https://www.it-rem.ru/linux-razbit-fayl-na-neskolko-chastey-a-potom-skleit.html?replytocom=1663#respond" onclick="return addComment.moveForm( &quot;comment-1663&quot;, &quot;1663&quot;, &quot;respond&quot;, &quot;1557&quot; )" aria-label="Комментарий к записи Vitaliy Orlov">Ответить</a></span>
+                                                <br>
+                        <span class="date">27.05.2016 в 8:43 дп</span>
+                        <div class="cmt_text">Встроенной утилиты Windows для этих целей я не знаю. Можно, скачать <a href="http://gnuwin32.sourceforge.net/packages/coreutils.htm" target="_blank" rel="nofollow">GNU Core Utils для Windows</a> и воспользоваться тем же split-ом. Еще, как вариант, установить архиватор который умеет делать многотомные архивы (например WinRar), и сделать архив с минимальным уровнем сжатия (или без сжатия), выставив нужный размер для частей.</div>
+                    </div>
+                </div>
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+            <li class="comment even thread-odd thread-alt depth-1" id="li-comment-1603">
+                <a name="comment-1603"></a>
+                <div id="comment-1603">
+                    <span class="avatarx"><img src="./Linux разбить файл на несколько частей, а потом склеить_files/noavatarprofileicon.png" width="40" height="40" alt="" class="avatar avatar-40wp-user-avatar wp-user-avatar-40 alignnone photo avatar-default"></span>
+                    <div class="message_head">
+                        <span class="name">Хутин_Пуйло</span>
+                        <span class="reply"><a rel="nofollow" class="comment-reply-link" href="https://www.it-rem.ru/linux-razbit-fayl-na-neskolko-chastey-a-potom-skleit.html?replytocom=1603#respond" onclick="return addComment.moveForm( &quot;comment-1603&quot;, &quot;1603&quot;, &quot;respond&quot;, &quot;1557&quot; )" aria-label="Комментарий к записи Хутин_Пуйло">Ответить</a></span>
+                                                <br>
+                        <span class="date">22.04.2016 в 8:30 пп</span>
+                        <div class="cmt_text">cat БЛА ГОДА РОЧ КА &gt; Спасибо.тхт</div>
+                    </div>
+                </div>
+<ul class="children">
+            <li class="comment byuser comment-author-vo bypostauthor odd alt depth-2" id="li-comment-1605">
+                <a name="comment-1605"></a>
+                <div id="comment-1605">
+                    <span class="avatarx"><img src="./Linux разбить файл на несколько частей, а потом склеить_files/new-ava-96.jpg" width="40" height="40" alt="Vitaliy Orlov" class="avatar avatar-40 wp-user-avatar wp-user-avatar-40 alignnone photo"></span>
+                    <div class="message_head">
+                        <span class="name">Vitaliy Orlov</span>
+                        <span class="reply"><a rel="nofollow" class="comment-reply-link" href="https://www.it-rem.ru/linux-razbit-fayl-na-neskolko-chastey-a-potom-skleit.html?replytocom=1605#respond" onclick="return addComment.moveForm( &quot;comment-1605&quot;, &quot;1605&quot;, &quot;respond&quot;, &quot;1557&quot; )" aria-label="Комментарий к записи Vitaliy Orlov">Ответить</a></span>
+                                                <br>
+                        <span class="date">24.04.2016 в 8:54 дп</span>
+                        <div class="cmt_text">mv Спасибо.тхт Рад-Помочь.тхт :)</div>
+                    </div>
+                </div>
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+            <li class="comment even thread-even depth-1" id="li-comment-1567">
+                <a name="comment-1567"></a>
+                <div id="comment-1567">
+                    <span class="avatarx"><img src="./Linux разбить файл на несколько частей, а потом склеить_files/noavatarprofileicon.png" width="40" height="40" alt="" class="avatar avatar-40wp-user-avatar wp-user-avatar-40 alignnone photo avatar-default"></span>
+                    <div class="message_head">
+                        <span class="name">Сергей</span>
+                        <span class="reply"><a rel="nofollow" class="comment-reply-link" href="https://www.it-rem.ru/linux-razbit-fayl-na-neskolko-chastey-a-potom-skleit.html?replytocom=1567#respond" onclick="return addComment.moveForm( &quot;comment-1567&quot;, &quot;1567&quot;, &quot;respond&quot;, &quot;1557&quot; )" aria-label="Комментарий к записи Сергей">Ответить</a></span>
+                                                <br>
+                        <span class="date">03.03.2016 в 7:23 пп</span>
+                        <div class="cmt_text">Спасибо, как раз то что нужно :)</div>
+                    </div>
+                </div>
+</li><!-- #comment-## -->
+            <li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-1248">
+                <a name="comment-1248"></a>
+                <div id="comment-1248">
+                    <span class="avatarx"><img src="./Linux разбить файл на несколько частей, а потом склеить_files/noavatarprofileicon.png" width="40" height="40" alt="" class="avatar avatar-40wp-user-avatar wp-user-avatar-40 alignnone photo avatar-default"></span>
+                    <div class="message_head">
+                        <span class="name">Дмитрий</span>
+                        <span class="reply"><a rel="nofollow" class="comment-reply-link" href="https://www.it-rem.ru/linux-razbit-fayl-na-neskolko-chastey-a-potom-skleit.html?replytocom=1248#respond" onclick="return addComment.moveForm( &quot;comment-1248&quot;, &quot;1248&quot;, &quot;respond&quot;, &quot;1557&quot; )" aria-label="Комментарий к записи Дмитрий">Ответить</a></span>
+                                                <br>
+                        <span class="date">07.01.2015 в 2:02 пп</span>
+                        <div class="cmt_text">Спасибо!Очень помогло скинуть архив с игрой,который не влез на карту памяти обьёмом в 4 гига.</div>
+                    </div>
+                </div>
+</li><!-- #comment-## -->
+            <li class="comment even thread-even depth-1" id="li-comment-700">
+                <a name="comment-700"></a>
+                <div id="comment-700">
+                    <span class="avatarx"><img src="./Linux разбить файл на несколько частей, а потом склеить_files/02f44370a5eeb73b8d3b51f66077fbce" width="40" height="40" alt="" class="avatar avatar-40wp-user-avatar wp-user-avatar-40 alignnone photo avatar-default"></span>
+                    <div class="message_head">
+                        <span class="name">Денис Рогов</span>
+                        <span class="reply"><a rel="nofollow" class="comment-reply-link" href="https://www.it-rem.ru/linux-razbit-fayl-na-neskolko-chastey-a-potom-skleit.html?replytocom=700#respond" onclick="return addComment.moveForm( &quot;comment-700&quot;, &quot;700&quot;, &quot;respond&quot;, &quot;1557&quot; )" aria-label="Комментарий к записи Денис Рогов">Ответить</a></span>
+                                                <br>
+                        <span class="date">27.11.2013 в 11:59 дп</span>
+                        <div class="cmt_text">Виталий, большое спасибо!</div>
+                    </div>
+                </div>
+<ul class="children">
+            <li class="comment byuser comment-author-vo bypostauthor odd alt depth-2" id="li-comment-706">
+                <a name="comment-706"></a>
+                <div id="comment-706">
+                    <span class="avatarx"><img src="./Linux разбить файл на несколько частей, а потом склеить_files/new-ava-96.jpg" width="40" height="40" alt="Vitaliy Orlov" class="avatar avatar-40 wp-user-avatar wp-user-avatar-40 alignnone photo"></span>
+                    <div class="message_head">
+                        <span class="name">Vitaliy Orlov</span>
+                        <span class="reply"><a rel="nofollow" class="comment-reply-link" href="https://www.it-rem.ru/linux-razbit-fayl-na-neskolko-chastey-a-potom-skleit.html?replytocom=706#respond" onclick="return addComment.moveForm( &quot;comment-706&quot;, &quot;706&quot;, &quot;respond&quot;, &quot;1557&quot; )" aria-label="Комментарий к записи Vitaliy Orlov">Ответить</a></span>
+                                                <br>
+                        <span class="date">28.11.2013 в 12:16 пп</span>
+                        <div class="cmt_text">Пожалуйста, рад что тебе помог!</div>
+                    </div>
+                </div>
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+	</ol>
+
+ 
+
+	<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">Добавить комментарий <small><a rel="nofollow" id="cancel-comment-reply-link" href="https://www.it-rem.ru/linux-razbit-fayl-na-neskolko-chastey-a-potom-skleit.html#respond" style="display:none;">Отменить ответ</a></small></h3>			<form action="https://www.it-rem.ru/linux-razbit-fayl-na-neskolko-chastey-a-potom-skleit.html#go-away-fucking-robots" method="post" id="commentform" class="comment-form">
+				<p class="comment-notes"><span id="email-notes">Ваш e-mail не будет опубликован.</span> Обязательные поля помечены <span class="required">*</span></p><p class="comment-form-comment"><label for="comment">Комментарий</label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" aria-required="true" required="required"></textarea></p><small>Разрешены HTML-теги: &lt;a&gt;, &lt;code&gt;, &lt;i&gt;, &lt;em&gt;, &lt;strong&gt;, &lt;b&gt;, &lt;u&gt;, &lt;strike&gt;</small><p class="comment-form-author"><label for="author">Имя <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" aria-required="true" required="required"></p>
+<p class="comment-form-email"><label for="email">E-mail <span class="required">*</span></label> <input type="text" name="liame" id="liame" size="30" value="">
+<input id="email" name="email" type="text" value="" size="30" maxlength="100" aria-describedby="email-notes" style="display:none"></p>
+<p class="comment-form-url"><label for="url">Сайт</label> <input id="url" name="url" type="text" value="" size="30" maxlength="200"></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Отправить комментарий"> <input type="hidden" name="comment_post_ID" value="1557" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+</p>			</form>
+			</div><!-- #respond -->
+	<script>eval(atob('CnZhciBjZm0gPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgiY29tbWVudGZvcm0iKTsKY2ZtLm9uc3VibWl0ID0gZnVuY3Rpb24oKXtjcGpzKGNmbSl9Owo='))</script>
+<hr>
+
+
+
+	</div><!-- section entry -->
+	</div><!-- main -->
+	<div id="sidebar">
+<li id="adrotate_widgets-2" class="widget-container adrotate_widgets"><div class="a-single a-3"><div style="margin-top:10px;">
+<script async="" src="./Linux разбить файл на несколько частей, а потом склеить_files/adsbygoogle.js.Без названия"></script>
+<!-- It-Rem-300x250 -->
+<ins class="adsbygoogle" style="display: inline-block; width: 300px; height: 250px;" data-ad-client="ca-pub-3056663252345829" data-ad-slot="7670229799" data-adsbygoogle-status="done"><ins id="aswift_1_expand" style="display:inline-table;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent;"><ins id="aswift_1_anchor" style="display:block;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent;"><iframe width="300" height="250" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;width:300px;height:250px;" src="./Linux разбить файл на несколько частей, а потом склеить_files/saved_resource(1).html"></iframe></ins></ins></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div></div></li><li id="astbiz-user-last-login_widget-2" class="widget-container widget_astbiz-user-last-login_widget"><span class="widget-title">Автор блога: Виталий Орлов</span><div class="astbiz-last-login"><div class="user-photo"><img src="./Linux разбить файл на несколько частей, а потом склеить_files/orlov0562.jpg"></div><div class="login-time"><span class="online">Сейчас на сайте</span></div></div></li><li id="recent-comments-2" class="widget-container widget_recent_comments"><span class="widget-title">Свежие комментарии</span><ul id="recentcomments"><li class="recentcomments"><span class="comment-author-link">Vitaliy Orlov</span> к записи <a href="https://www.it-rem.ru/hetzner-i-zamena-diska.html/comment-page-1#comment-2117">Hetzner и замена диска</a></li><li class="recentcomments"><span class="comment-author-link">Дмитрий</span> к записи <a href="https://www.it-rem.ru/hetzner-i-zamena-diska.html/comment-page-1#comment-2115">Hetzner и замена диска</a></li><li class="recentcomments"><span class="comment-author-link">Vitaliy Orlov</span> к записи <a href="https://www.it-rem.ru/wp-super-cache-i-sape-otklyuchenie-keshirovaniya.html/comment-page-1#comment-2114">WP Super Cache и Sape. Отключение кеширования.</a></li><li class="recentcomments"><span class="comment-author-link">Виктор</span> к записи <a href="https://www.it-rem.ru/wp-super-cache-i-sape-otklyuchenie-keshirovaniya.html/comment-page-1#comment-2112">WP Super Cache и Sape. Отключение кеширования.</a></li><li class="recentcomments"><span class="comment-author-link"><a href="https://www.it-rem.ru/kak-sobrat-kompyuter-svoimi-rukami-podbor-i-pokupka-komplektuyushhih.html" rel="external nofollow" class="url">Как собрать компьютер своими руками. Подбор и покупка комплектующих.</a></span> к записи <a href="https://www.it-rem.ru/sravnenie-proizvoditelnosti-protsessorov.html/comment-page-1#comment-2111">Сравнение производительности процессоров</a></li></ul></li><li id="text-3" class="widget-container widget_text"><span class="widget-title">Зарабатывай с Payoneer!</span>			<div class="textwidget"><div style="margin-top:-5px;border:1px solid #222;overflow:hidden">
+<a href="https://share.payoneer.com/nav/T7cwlmS2SxPxD08MgX7EPHQJBzlyXBhLnI8mBq2o_DpjUVWJJPgCBn_JYl9BIKD5_ZeGOSOrAJ6mU3EPUEXwAw2" target="_blank" rel="noopener"><img style="width: 100%" src="./Linux разбить файл на несколько частей, а потом склеить_files/payoneer-336.jpg"></a>
+</div>
+</div>
+		</li></div>
+	</div>
+<div id="footer">
+
+<div id="footerbox">
+
+
+<div style="position:absolute; left:20px; top:9px;padding:2px; border-radius:3px; background-color:#7F7F7F;"><div style="background-color:#E5E5E5;">
+<script type="text/javascript"><!--
+document.write("<noindex><a href='http://www.liveinternet.ru/click' "+
+"target='_blank' rel='nofollow'><img src='//counter.yadro.ru/hit?t25.5;r"+
+escape(document.referrer)+((typeof(screen)=="undefined")?"":
+";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
+screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
+";"+Math.random()+
+"' alt='' title='LiveInternet: показано число посетителей за"+
+" сегодня' "+
+"border='0' width='88' height='15'><\/a></noindex>")
+//--></script><noindex><a href="http://www.liveinternet.ru/click" target="_blank" rel="nofollow"><img src="./Linux разбить файл на несколько частей, а потом склеить_files/hit" alt="" title="LiveInternet: показано число посетителей за сегодня" border="0" width="88" height="15"></a></noindex>
+</div></div>
+
+<div class="return"><a href="https://www.it-rem.ru/linux-razbit-fayl-na-neskolko-chastey-a-potom-skleit.html#header">↑ Наверх</a></div>
+
+<p class="support">
+© 2017 <a href="https://www.it-rem.ru/">IT Remarks</a>
+</p>
+</div>
+</div>
+<script type="text/javascript" src="./Linux разбить файл на несколько частей, а потом склеить_files/cookie.js.Без названия"></script>
+<script type="text/javascript" src="./Linux разбить файл на несколько частей, а потом склеить_files/3c2e5255f9305331c192e2ec2188ba1f.js.Без названия"></script>
+<script type="text/javascript" src="./Linux разбить файл на несколько частей, а потом склеить_files/comment-reply.min.js.Без названия"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var impression_object = {"ajax_url":"https:\/\/www.it-rem.ru\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Linux разбить файл на несколько частей, а потом склеить_files/jquery.adrotate.dyngroup.js.Без названия"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var click_object = {"ajax_url":"https:\/\/www.it-rem.ru\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Linux разбить файл на несколько частей, а потом склеить_files/jquery.adrotate.clicktracker.js.Без названия"></script>
+<script type="text/javascript" src="./Linux разбить файл на несколько частей, а потом склеить_files/wp-embed.min.js.Без названия"></script>
+
+<!-- Begin Shadowbox JS v3.0.3.10 -->
+<!-- Selected Players: html, iframe, img, qt, swf, wmp -->
+<script type="text/javascript">
+/* <![CDATA[ */
+	var shadowbox_conf = {
+		animate: true,
+		animateFade: true,
+		animSequence: "sync",
+		modal: false,
+		showOverlay: true,
+		overlayColor: "#000",
+		overlayOpacity: "0.8",
+		flashBgColor: "#000000",
+		autoplayMovies: true,
+		showMovieControls: true,
+		slideshowDelay: 0,
+		resizeDuration: "0.35",
+		fadeDuration: "0.35",
+		displayNav: true,
+		continuous: false,
+		displayCounter: true,
+		counterType: "default",
+		counterLimit: "10",
+		viewportPadding: "20",
+		handleOversize: "resize",
+		handleUnsupported: "link",
+		autoDimensions: false,
+		initialHeight: "160",
+		initialWidth: "320",
+		enableKeys: true,
+		skipSetup: false,
+		useSizzle: false,
+		flashParams: {bgcolor:"#000000", allowFullScreen:true},
+		flashVars: {},
+		flashVersion: "9.0.0"
+	};
+	Shadowbox.init(shadowbox_conf);
+/* ]]> */
+</script>
+<!-- End Shadowbox JS -->
+
+<!-- AdRotate JS -->
+<script type="text/javascript">
+jQuery(document).ready(function(){
+if(jQuery.fn.gslider) {
+	jQuery('.g-1').gslider({ groupid: 1, speed: 25000 });
+}
+});
+</script>
+<!-- /AdRotate JS -->
+
+		<script type="text/javascript">
+			var bwpRecaptchaCallback = function() {
+				// render all collected recaptcha instances
+			};
+		</script>
+
+		<script src="./Linux разбить файл на несколько частей, а потом склеить_files/api.js.Без названия" async="" defer=""></script>
+
+<div id="top-link" class="veryhidden" style="padding-top: 637px; display: block;">
+   <a href="https://www.it-rem.ru/linux-razbit-fayl-na-neskolko-chastey-a-potom-skleit.html#top">↑ наверх</a>
+</div>
+
+<script language="JavaScript" type="text/javascript">
+/*<![CDATA[*/
+$(document).ready(function(){
+   $('#top-link').css({'padding-top': $(window).height()});
+   function mytoplink() {
+       var h = $(window).width()/2-960/2-102;
+        if (h>50) h=50;
+       if(h<0){
+           $('#top-link').addClass('veryhidden');
+       } else {
+           $('#top-link').removeClass('veryhidden');
+       }
+   }
+   mytoplink();
+   $(window).resize(function(){
+       mytoplink();
+   });
+   $('#top-link').topLink({min: 400,fadeSpeed: 500});
+   $('#top-link').click(function(e) {
+       e.preventDefault();
+       $.scrollTo(0,300);
+   });
+
+   if (typeof $.fn.gslider !="function") {
+        var html = '';
+        html += '<li class="widget-container">';
+        html += '<div style="font-size:1.2em; font-weight:bold; color:#1E96DB; line-height:1.4em;">';
+        html += 'AdBlock рекомендует ;)';
+        html += '</div>';
+        html += $('#sidebar .adrotate_widgets').first().html();
+        html += '</li>';
+        $('#sidebar').prepend(html);
+   }
+
+});
+/*]]>*/
+</script>
+
+    <script src="./Linux разбить файл на несколько частей, а потом склеить_files/saved_resource" async="async" type="text/javascript"></script>
+
+
+
+<div id="sb-container"><div id="sb-overlay"></div><div id="sb-wrapper"><div id="sb-title"><div id="sb-title-inner"></div></div><div id="sb-wrapper-inner"><div id="sb-body"><div id="sb-body-inner"></div><div id="sb-loading"><div id="sb-loading-inner"><span>загрузка</span></div></div></div></div><div id="sb-info"><div id="sb-info-inner"><div id="sb-counter"></div><div id="sb-nav"><a id="sb-nav-close" title="Закрыть" onclick="Shadowbox.close()"></a><a id="sb-nav-next" title="Следующая" onclick="Shadowbox.next()"></a><a id="sb-nav-play" title="Пуск" onclick="Shadowbox.play()"></a><a id="sb-nav-pause" title="Пауза" onclick="Shadowbox.pause()"></a><a id="sb-nav-previous" title="Предыдущая" onclick="Shadowbox.previous()"></a></div></div></div></div></div></body></html>

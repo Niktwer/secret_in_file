@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.ApplicationServices;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,9 +16,19 @@ namespace secret_true_version
         [STAThread]
         static void Main()
         {
+
+            string password;
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+                
+            SingleInstanceApplication.Run(new Form_begin(),StartupNextInstanceHandler);
         }
+
+            static void StartupNextInstanceHandler(object sender, StartupNextInstanceEventArgs e)
+            {
+                // for e.CommandLine...
+            }
+
     }
 }
